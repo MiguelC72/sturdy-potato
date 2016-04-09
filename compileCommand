@@ -1,0 +1,1 @@
+g++ `pkg-config opencv --cflags` extractDesc.cpp -o extractDesc `pkg-config opencv --libs`

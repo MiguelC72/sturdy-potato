@@ -151,8 +151,8 @@ for i in range(printer.shape[0]):
 		if np.array_equal(printer[i], nearestNeighbor[j]):
 			counts['printer'] += 1
 '''
-print counts
-print max(counts, key=counts.get)
+#print counts
+#print max(counts, key=counts.get)
 
 '''
 I got the code below from here:
@@ -160,13 +160,13 @@ http://stackoverflow.com/questions/3898574/google-search-using-python-script
 Not ideal, but probably enough for a prototype.
 I'm retruning the search results as a JSON object.
 I think that should be easy to work with on Daniel's side of the code
-
+'''
 query = max(counts, key=counts.get)
 query = urllib.urlencode({'q' : query})
 response = urllib.urlopen('http://ajax.googleapis.com/ajax/services/search/web?v=1.0&' + query).read()
 json = m_json.loads(response)
 results = json['responseData']['results']
-'''
+
 #printing out search results for testing 
 #for result in results:
 #	title = result['title']

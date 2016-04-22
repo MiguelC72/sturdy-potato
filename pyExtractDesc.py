@@ -1,7 +1,9 @@
 import  cv2
 import numpy as np
 
-sift = cv2.SIFT(10)
+np.set_printoptions(threshold=np.nan)
+
+sift = cv2.SIFT()
 
 img1 = cv2.imread('laptop.jpg');
 gray1 = cv2.cvtColor(img1, cv2.COLOR_BGR2GRAY)
@@ -23,8 +25,10 @@ np.savez_compressed('descriptors.npz', laptop=desc1, notebook=desc2, pencil=desc
 
 
 
-#print "Descriptors shape", desc.shape
+print "Descriptors shape", desc3.shape
 
-#img = cv2.drawKeypoints(gray, kp)
+#print desc1
 
-#cv2.imwrite('sift_keypoints.jpg', img)
+img = cv2.drawKeypoints(gray3, kp3)
+
+cv2.imwrite('sift_keypoints.jpg', img)
